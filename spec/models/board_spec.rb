@@ -27,7 +27,7 @@ RSpec.describe Board, :type => :model do
 
 	context '#previous_board' do
 		it 'should be empty' do
-			expect(board.previous_board).to be([])
+			expect(board.previous_board).to eq([])
 		end
 	end
 
