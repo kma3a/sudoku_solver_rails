@@ -45,6 +45,10 @@ RSpec.describe Board, :type => :model do
 		it 'should give the column when given the index' do
 			expect(board.find_col(37)).to eq(2)
 		end
+
+		it 'should give a different colum with given a different index' do
+			expect(board.find_col(78)).to eq(7)
+		end
 	end
 
 end
