@@ -4,9 +4,10 @@ class Board
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  
+  attr_accessor :board
 
-  def initialize(args)
+  def initialize(board)
+  	@board = board
 
   end
 end
