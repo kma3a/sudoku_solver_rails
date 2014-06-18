@@ -7,7 +7,7 @@ class Board
   attr_accessor :board
 
   def initialize(board)
-  	@board = board
+  	@board = board.split("")
 
   end
 end

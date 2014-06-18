@@ -17,7 +17,11 @@ RSpec.describe Board, :type => :model do
 
 	context '#board' do
 		it 'should ecpect board to have a length of 81' do
-			expect(board.board.length).to eq(81)
+		expect(board.board.length).to eq(81)
+		end
+
+		it 'should be and array' do
+			expect(board.board.is_a?(Array)).to be(true)
 		end
 	end 
 
