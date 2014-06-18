@@ -11,8 +11,14 @@ RSpec.describe Board, :type => :model do
 	  end
 
 	  it 'should be an instance of board' do
-
+	  	expect(board).to be_an_instance_of(Board)
 	  end
 	end
+
+	context '#board' do
+		it 'should ecpect board to have a length of 81' do
+			expect(board.board.length).to eq(81)
+		end
+	end 
 
 end
