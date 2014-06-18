@@ -12,6 +12,10 @@ class Board
   end
 
   def find_row(index)
-  	row = index / 9 + 1
+  	row = (index / 9) + 1
+  end
+
+  def find_col(index)
+  	col = (index % 9) + 1
   end
 end
