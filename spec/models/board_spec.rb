@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Board, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should take parameters' do
+  	expect{Board.new}.to raise_error(ArgumentError)
+  end
 end
