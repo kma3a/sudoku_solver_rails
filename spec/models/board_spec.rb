@@ -23,6 +23,12 @@ RSpec.describe Board, :type => :model do
 		it 'should be and array' do
 			expect(board.board.is_a?(Array)).to be(true)
 		end
-	end 
+	end
+
+	context '#previous_board' do
+		it 'should be empty' do
+			expect(board.previous_board).to be([])
+		end
+	end
 
 end
