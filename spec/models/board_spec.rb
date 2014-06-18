@@ -25,6 +25,16 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#find_row' do
+		it 'should find a row with a given index' do
+			expect(board.find_row(25)).to eq(3)
+		end
+
+		it 'should find the row with a different index' do
+			expect(board.find_row(40)).to eq(5)
+		end
+	end
+
 	context '#previous_board' do
 		it 'should be empty' do
 			expect(board.previous_board).to eq([])

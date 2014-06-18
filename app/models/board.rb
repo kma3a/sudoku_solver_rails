@@ -10,4 +10,8 @@ class Board
   	@board = board.split("")
   	@previous_board = []
   end
+
+  def find_row(index)
+  	row = index / 9 + 1
+  end
 end
