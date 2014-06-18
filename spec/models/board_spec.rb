@@ -51,4 +51,10 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#find_box' do
+		it 'should give the box number when given the index' do
+			expect(board.find_box(63)).to eq(7)
+		end
+	end
+
 end
