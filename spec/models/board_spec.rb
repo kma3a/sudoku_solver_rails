@@ -41,4 +41,10 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#find_col' do
+		it 'should give the column when given the index' do
+			expect(board.find_col(37)).to eq(2)
+		end
+	end
+
 end
