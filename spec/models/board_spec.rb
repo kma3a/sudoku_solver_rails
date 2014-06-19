@@ -74,5 +74,17 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#create_cell' do
+		it 'should create instances of cell' do
+			board.create_board
+			expect(board.game_board[1]).to be_an_instance_of(Cell)
+		end
+	end
+
+	context '#cell_value' do
+		it 'should take a value of 0 and get back an array' do
+			expect(board.cell_value("0")).to eq((1..9).to_a)
+		end
+	end
 
 end

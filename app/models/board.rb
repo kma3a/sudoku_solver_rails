@@ -14,8 +14,16 @@ class Board
 
   def create_board
     self.game_board = board.map do |cell|
-      cell == "0" ? (1..9).to_a : cell.to_i
+      create_cell(cell)
     end
+  end
+
+  def create_cell(input_value)
+    Cell.new(value: cell_value(input_value))
+  end
+
+  def cell_value(value)
+    value == "0" ? (1..9).to_a : value.to_i
   end
 
   def find_row(index)
