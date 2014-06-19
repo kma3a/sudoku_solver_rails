@@ -55,6 +55,24 @@ RSpec.describe Board, :type => :model do
 		it 'should give the box number when given the index' do
 			expect(board.find_box(63)).to eq(7)
 		end
+
+		it 'should give a diffrerent number when given a different index' do
+			expect(board.find_box(40)).to eq(5)
+		end
 	end
+
+	context '#game_board' do
+		it 'should be blank at the start of game' do
+			expect(board.game_board).to eq([])
+		end
+	end
+
+	context '#create_board' do
+		it 'should add to game board' do
+			board.create_board
+			expect(board.game_board.length).to eq(81)
+		end
+	end
+
 
 end

@@ -4,11 +4,18 @@ class Board
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :board, :previous_board
+  attr_accessor :board, :previous_board, :game_board
 
   def initialize(board)
   	@board = board.split("")
   	@previous_board = []
+    @game_board = []
+  end
+
+  def create_board
+    self.game_board = board.map do |cell|
+      cell == "0" ? (1..9).to_a : cell.to_i
+    end
   end
 
   def find_row(index)
@@ -20,15 +27,8 @@ class Board
   end
 
   def find_box(index)
-  	grid = [1,1,1,2,2,2,3,3,3,
-  					1,1,1,2,2,2,3,3,3,
-  				  1,1,1,2,2,2,3,3,3,
-  					4,4,4,5,5,5,6,6,6,
-  					4,4,4,5,5,5,6,6,6,
-  					4,4,4,5,5,5,6,6,6,
-  					7,7,7,8,8,8,9,9,9,
-  					7,7,7,8,8,8,9,9,9,
-  					7,7,7,8,8,8,9,9,9]
-  	grid[index]
+    row = (find_row(index) - 1) /3
+    col = (find_col(index) - 1) /3
+    box = (row * 3) + col + 1 
   end
 end
