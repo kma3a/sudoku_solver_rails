@@ -108,4 +108,11 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#get_all_values' do
+		it 'should give the values of box, col, and row as one array' do
+			board.create_board
+			expect(board.get_all_values(0)).to eq([1,5,8,2,7,4,6,9])
+		end
+	end
+
 end

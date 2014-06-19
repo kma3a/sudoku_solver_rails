@@ -40,6 +40,10 @@ class Board
     box = (row * 3) + col + 1
   end
 
+  def get_all_values(index)
+    (get_row(index) + get_col(index) + get_box(index)).uniq
+  end
+
   def get_row(index)
     row = find_row(index)
     row_array = []
