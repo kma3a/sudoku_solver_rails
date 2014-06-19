@@ -37,6 +37,13 @@ class Board
   def find_box(index)
     row = (find_row(index) - 1) /3
     col = (find_col(index) - 1) /3
-    box = (row * 3) + col + 1 
+    box = (row * 3) + col + 1
+  end
+
+  def get_row(index)
+    row = find_row(index)
+    row_array = []
+    game_board.each_with_index { |cell, index| row_array << cell.value if find_row(index) == row && !cell.value.is_a?(Array)}
+    row_array
   end
 end

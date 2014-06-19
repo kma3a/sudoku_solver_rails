@@ -87,4 +87,11 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#get_row' do
+		it 'should return an array of all the values already in that row' do
+			board.create_board
+			expect(board.get_row(0)).to eq([1,5,8,2])
+		end
+	end
+
 end
