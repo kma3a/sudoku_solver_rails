@@ -47,4 +47,18 @@ RSpec.describe Cell, :type => :model do
   		expect(cell.make_value).to eq(1)
   	end
   end
+
+  context '#play' do
+  	it 'should make it go through the rest of the methods' do
+  		expect(cell2.play([1,2,4,5,6,7,8,9])).to eq(3)
+  	end
+
+  	it 'should go through and leave it if array is still full' do
+  		expect(cell2.play([1,2,4,5,6,7,9])).to eq([3,8])
+  	end
+
+  	it 'should leave it alone if the value is not an array' do
+  		expect(cell.play([1,2,4,5,6,7,9])).to eq(1)
+  	end
+  end
 end

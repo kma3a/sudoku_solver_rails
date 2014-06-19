@@ -6,6 +6,11 @@ class Cell
 		@value = args[:value]
 	end
 
+	def play(input_array)
+		change_value(input_array)
+		make_value
+	end
+
 	def change_value(input_array)
 		if value.is_a?(Array)
 			self.value -= input_array
