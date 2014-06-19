@@ -74,5 +74,45 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#create_cell' do
+		it 'should create instances of cell' do
+			board.create_board
+			expect(board.game_board[1]).to be_an_instance_of(Cell)
+		end
+	end
+
+	context '#cell_value' do
+		it 'should take a value of 0 and get back an array' do
+			expect(board.cell_value("0")).to eq((1..9).to_a)
+		end
+	end
+
+	context '#get_row' do
+		it 'should return an array of all the values already in that row' do
+			board.create_board
+			expect(board.get_row(0)).to eq([1,5,8,2])
+		end
+	end
+
+	context '#get_col' do
+		it 'should return an array of all the values in the column' do
+			board.create_board
+			expect(board.get_col(0)).to eq([1,2,7,4,6])
+		end
+	end
+
+	context '#get_box' do
+		it 'should return an array of all the values in the box' do
+			board.create_board
+			expect(board.get_box(0)).to eq([1,5,9,2])
+		end
+	end
+
+	context '#get_all_values' do
+		it 'should give the values of box, col, and row as one array' do
+			board.create_board
+			expect(board.get_all_values(0)).to eq([1,5,8,2,7,4,6,9])
+		end
+	end
 
 end
