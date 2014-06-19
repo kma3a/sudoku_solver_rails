@@ -61,5 +61,11 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#game_board' do
+		it 'should be blank at the start of game' do
+			expect(board.game_board).to eq([])
+		end
+	end
+
 
 end

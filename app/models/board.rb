@@ -4,11 +4,12 @@ class Board
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :board, :previous_board
+  attr_accessor :board, :previous_board, :game_board
 
   def initialize(board)
   	@board = board.split("")
   	@previous_board = []
+    @game_board = []
   end
 
   def find_row(index)
