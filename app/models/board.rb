@@ -46,4 +46,11 @@ class Board
     game_board.each_with_index { |cell, index| row_array << cell.value if find_row(index) == row && !cell.value.is_a?(Array)}
     row_array
   end
+
+  def get_col(index)
+    col = find_col(index)
+    col_array = []
+    game_board.each_with_index { |cell, index| col_array << cell.value if find_col(index) == col && !cell.value.is_a?(Array)}
+    col_array
+  end
 end

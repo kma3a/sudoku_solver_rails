@@ -94,4 +94,11 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#get_col' do
+		it 'should return an array of all the values in the column' do
+			board.create_board
+			expect(board.get_col(0)).to eq([1,2,7,4,6])
+		end
+	end
+
 end
