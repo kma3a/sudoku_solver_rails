@@ -12,6 +12,12 @@ class Board
     @game_board = []
   end
 
+  def create_board
+    self.game_board = board.map do |cell|
+      cell == "0" ? (1..9).to_a : cell.to_i
+    end
+  end
+
   def find_row(index)
   	row = (index / 9) + 1
   end

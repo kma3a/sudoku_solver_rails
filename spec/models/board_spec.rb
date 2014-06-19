@@ -67,5 +67,12 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#create_board' do
+		it 'should add to game board' do
+			board.create_board
+			expect(board.game_board.length).to eq(81)
+		end
+	end
+
 
 end
