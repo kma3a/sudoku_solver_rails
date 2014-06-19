@@ -17,4 +17,11 @@ class Cell
 		value.is_a?(Array) && value.length == 1
 	end
 
+	def make_value
+		if check_value
+			self.value = value.first
+		end
+		value
+	end
+
 end

@@ -35,6 +35,16 @@ RSpec.describe Cell, :type => :model do
   	it 'should return false if it does not meet qualifications' do
   		expect(cell.check_value).to eq(false)
   	end
+  end
 
+  context '#make_value' do
+  	it 'should make the value a number if check_value is true' do
+  		cell2.change_value([2,3,4,5,6,7,8,9])
+  		expect(cell2.make_value).to eq(1)
+  	end
+
+  	it 'should be the same if check_value is false' do
+  		expect(cell.make_value).to eq(1)
+  	end
   end
 end
