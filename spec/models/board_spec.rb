@@ -101,4 +101,11 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#get_box' do
+		it 'should return an array of all the values in the box' do
+			board.create_board
+			expect(board.get_box(0)).to eq([1,5,9,2])
+		end
+	end
+
 end
