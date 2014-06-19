@@ -6,4 +6,15 @@ class Cell
 		@value = args[:value]
 	end
 
+	def change_value(input_array)
+		if value.is_a?(Array)
+			self.value -= input_array
+		end
+		value
+	end
+
+	def check_value
+		value.is_a?(Array) && value.length == 1
+	end
+
 end
