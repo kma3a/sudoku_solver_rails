@@ -55,21 +55,21 @@ class Board
   def get_row(index)
     row = find_row(index)
     row_array = []
-    game_board.each_with_index { |cell, index| row_array << cell.value if find_row(index) == row && !cell.value.is_a?(Array)}
+    game_board.each_with_index { |cell, index| row_array << get_cell_value(cell) if find_row(index) == row && !get_cell_value(cell).is_a?(Array)}
     row_array
   end
 
   def get_col(index)
     col = find_col(index)
     col_array = []
-    game_board.each_with_index { |cell, index| col_array << cell.value if find_col(index) == col && !cell.value.is_a?(Array)}
+    game_board.each_with_index { |cell, index| col_array << get_cell_value(cell) if find_col(index) == col && !get_cell_value(cell).is_a?(Array)}
     col_array
   end
 
   def get_box(index)
     box = find_box(index)
     box_array = []
-    game_board.each_with_index { |cell, index| box_array << cell.value if find_box(index) == box && !cell.value.is_a?(Array)}
+    game_board.each_with_index { |cell, index| box_array << get_cell_value(cell) if find_box(index) == box && !get_cell_value(cell).is_a?(Array)}
     box_array
   end
 
@@ -78,29 +78,32 @@ class Board
   end
 
   def print_board
-    end_board = game_board.map {|cell| cell.value == [] ? 0 : cell.value}
+    end_board = game_board.map {|cell| get_cell_value(cell) == [] ? 0 : get_cell_value(cell)}
     end_board
   end
 
   def is_solved?
-    game_board.map{|cell| cell.value}.flatten.length == 81
+    game_board.map{|cell| get_cell_value(cell)}.flatten.length == 81
   end
 
   def inconceivable
-    game_board.map{|cell| cell.value}.include?([])
+    game_board.map{|cell| get_cell_value(cell)}.include?([])
   end
 
   def need_guess
-    if previous_board == game_board.map{|cell| cell.value}
+    if previous_board == game_board.map{|cell| get_cell_value(cell)}
       return true
     end
-    self.previous_board = game_board.map{|cell| cell.value}
+    self.previous_board = game_board.map{|cell| get_cell_value(cell)}
   end
 
   def play
     create_board
     until is_solved?
       exterminate
+      if inconceivable
+        return "inconceivable"
+      end
     end
   end
 end
