@@ -69,6 +69,10 @@ class Board
     box_array
   end
 
+  def exterminate
+    game_board.each_with_index {|cell,index| cell_changes(cell, index)}
+  end
+
   def print_board
     end_board = game_board.map {|cell| cell.value}
     end_board
