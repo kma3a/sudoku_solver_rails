@@ -136,4 +136,41 @@ RSpec.describe Board, :type => :model do
 			expect(board.print_board).to eq([1, [4, 7], 5, 8, [3, 9], 2, [6, 7], [6, 7], [3, 7], [3, 8], 9, [3, 8], 1, 7, 6, 4, 2, 5, 2, 7, [3, 6], 4, [3, 5], 5, 8, 1, 9, [5, 8], 1, 9, [2, 5], [4, 5], 7, 3, [4, 8], 6, 7, 6, 2, 5, 8, 3, 1, 9, 4, [3, 8], [4, 8], [3, 4, 8], [2, 9], 6, 1, [2, 7], 5, [2, 7, 8], [5, 8, 9], [2, 5, 8], 7, 6, [1, 4, 5, 9], [4, 9], 2, 3, 8, 4, 3, 8, [7, 9], 2, 9, 5, [6, 7], 1, 6, [2, 5], 1, 3, [4, 5], 8, 9, [4, 7], 7])
 		end
 	end
+
+	context '#is_solved?' do
+		it 'should check if the board is solved' do
+			board.create_board
+			board.exterminate
+			expect(board.is_solved?).to eq(false)
+		end
+	end
+
+	context '#inconceivable' do
+		it 'should return false if it is not impossible' do
+			board.create_board
+			board.exterminate
+			expect(board.inconceivable).to eq(false)
+		end
+
+		it 'should return true if it is impossible' do
+			board_2.create_board
+			board_2.exterminate
+			expect(board_2.inconceivable).to eq(true)
+		end
+	end
+
+	context '#need_guess' do
+		it 'should return true if prevous board is the same as the current board' do
+			board.create_board
+			board.exterminate
+			board.need_guess
+			expect(board.need_guess).to eq(true)
+		end
+
+		it 'should return true if prevous board is the same as the current board' do
+			board.create_board
+			board.exterminate
+			expect(board.need_guess).to_not eq(true)
+		end
+	end
 end

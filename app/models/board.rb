@@ -77,4 +77,19 @@ class Board
     end_board = game_board.map {|cell| cell.value}
     end_board
   end
+
+  def is_solved?
+    game_board.map{|cell| cell.value}.flatten.length == 81
+  end
+
+  def inconceivable
+    game_board.map{|cell| cell.value}.include?([])
+  end
+
+  def need_guess
+    if previous_board == game_board.map{|cell| cell.value}
+      return true
+    end
+    self.previous_board = game_board.map{|cell| cell.value}
+  end
 end
