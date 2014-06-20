@@ -95,6 +95,7 @@ class Board
       return true
     end
     self.previous_board = game_board.map{|cell| get_cell_value(cell)}
+    false
   end
 
   def play
@@ -103,7 +104,28 @@ class Board
       exterminate
       if inconceivable
         return "inconceivable"
+      elsif need_guess
+        brute_squad
       end
     end
+  end
+
+  def brute_squad
+    brute_board = game_board
+    index = brute_board.index {|index| cell_value(index).is_a?(Array) && cell_value(index).length == 2}
+    guess_1 = cell_value(brute_board[index]).shift
+    guess_2 = cell_value(brute_board[index]).pop
+    solution = try_guess(brute_board, index, guess_1)
+    if solution
+      self.game_board = solution
+    else
+      solution = try_guess(brute_board, index, guess_2)
+    end
+  end
+
+  def try_guess(brute_board, index, guess)
+    brute_board[index].value = guess
+    new_board = brute_board.map { |num| get_cell_value(num)}
+    self.class.new(new_board.map{|cell| get_cell_value(cell).is_a?(Array) ? cell = 0 : get_cell_value(cell)}.join).play
   end
 end
