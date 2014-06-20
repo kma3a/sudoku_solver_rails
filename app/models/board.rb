@@ -68,4 +68,9 @@ class Board
     game_board.each_with_index { |cell, index| box_array << cell.value if find_box(index) == box && !cell.value.is_a?(Array)}
     box_array
   end
+
+  def print_board
+    end_board = game_board.map {|cell| cell.value}
+    end_board
+  end
 end
