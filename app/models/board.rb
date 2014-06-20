@@ -103,7 +103,7 @@ class Board
     until is_solved?
       exterminate
       if inconceivable
-        return "inconceivable"
+        return false
       elsif need_guess
         brute_squad
       end
