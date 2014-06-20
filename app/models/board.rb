@@ -74,7 +74,7 @@ class Board
   end
 
   def print_board
-    end_board = game_board.map {|cell| cell.value}
+    end_board = game_board.map {|cell| cell.value == [] ? 0 : cell.value}
     end_board
   end
 
