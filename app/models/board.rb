@@ -92,4 +92,11 @@ class Board
     end
     self.previous_board = game_board.map{|cell| cell.value}
   end
+
+  def play
+    create_board
+    until is_solved?
+      exterminate
+    end
+  end
 end
