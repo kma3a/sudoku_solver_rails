@@ -22,6 +22,10 @@ class Board
     Cell.new(value: cell_value(input_value))
   end
 
+  def get_cell_value(cell)
+    cell.value
+  end
+
   def cell_value(value)
     value == "0" ? (1..9).to_a : value.to_i
   end
