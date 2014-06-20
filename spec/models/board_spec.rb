@@ -115,4 +115,11 @@ RSpec.describe Board, :type => :model do
 		end
 	end
 
+	context '#cell_changes' do
+		it 'should take the total array and send it to cell to change the cell values' do
+			board.create_board
+			expect(board.cell_changes(board.game_board[1], 1)).to eq([4,7])
+		end
+	end
+
 end

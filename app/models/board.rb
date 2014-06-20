@@ -40,6 +40,10 @@ class Board
     box = (row * 3) + col + 1
   end
 
+  def cell_changes(cell, index)
+    cell.play(get_all_values(index))
+  end
+
   def get_all_values(index)
     (get_row(index) + get_col(index) + get_box(index)).uniq
   end
