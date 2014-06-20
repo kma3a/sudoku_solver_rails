@@ -183,6 +183,11 @@ RSpec.describe Board, :type => :model do
 		it 'should return inconceivable if impossible' do
 			expect(board_2.play).to eq("inconceivable")
 		end
+
+		it 'should finish a game that needs guessing' do
+			board_3.play
+			expect(board_3.print_board).to eq([7, 3, 2, 6, 8, 9, 1, 4, 5, 8, 4, 6, 5, 7, 1, 3, 2, 9, 1, 5, 9, 3, 2, 4, 6, 7, 8, 4, 1, 3, 9, 6, 8, 2, 5, 7, 2, 7, 8, 1, 3, 5, 4, 9, 6, 6, 9, 5, 2, 4, 7, 8, 3, 1, 3, 8, 4, 7, 5, 6, 9, 1, 2, 5, 2, 1, 8, 9, 3, 7, 6, 4, 9, 6, 7, 4, 1, 2, 5, 8, 3])
+		end
 	end
 
 	context '#get_cell_value' do
@@ -190,5 +195,9 @@ RSpec.describe Board, :type => :model do
 			board.create_board
 			expect(board.get_cell_value(board.game_board[0])).to eq(1)
 		end
+	end
+
+	context '#brute_squad' do
+
 	end
 end

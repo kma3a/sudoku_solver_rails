@@ -108,13 +108,14 @@ class Board
         brute_squad
       end
     end
+    game_board
   end
 
   def brute_squad
     brute_board = game_board
-    index = brute_board.index {|index| cell_value(index).is_a?(Array) && cell_value(index).length == 2}
-    guess_1 = cell_value(brute_board[index]).shift
-    guess_2 = cell_value(brute_board[index]).pop
+    index = brute_board.index {|index| get_cell_value(index).is_a?(Array) && get_cell_value(index).length == 2}
+    guess_1 = get_cell_value(brute_board[index]).shift
+    guess_2 = get_cell_value(brute_board[index]).pop
     solution = try_guess(brute_board, index, guess_1)
     if solution
       self.game_board = solution
@@ -126,6 +127,6 @@ class Board
   def try_guess(brute_board, index, guess)
     brute_board[index].value = guess
     new_board = brute_board.map { |num| get_cell_value(num)}
-    self.class.new(new_board.map{|cell| get_cell_value(cell).is_a?(Array) ? cell = 0 : get_cell_value(cell)}.join).play
+    self.class.new(new_board.map{|cell| cell.is_a?(Array) ? 0 : cell}.join).play
   end
 end
