@@ -15,7 +15,7 @@ class Cell
 		if value.is_a?(Array)
 			self.value -= input_array
 		end
-		value
+		check_value
 	end
 
 	def check_value
