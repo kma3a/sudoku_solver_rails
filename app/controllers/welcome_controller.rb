@@ -1,8 +1,17 @@
 class WelcomeController < ApplicationController
 
 	def index
-		@sudoku = Board.new('000000000000000000000000000000000000000000000000000')
+	
 	end
 
+	def create
+		@board = Board.new(board_params).play
+	end
+
+	private
+
+	def board_params
+		p params.require(:/).values.join
+	end
 
 end
