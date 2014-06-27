@@ -4,4 +4,5 @@ class WelcomeController < ApplicationController
 		@sudoku = Board.new('000000000000000000000000000000000000000000000000000')
 	end
 
+
 end
