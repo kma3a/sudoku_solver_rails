@@ -2,8 +2,8 @@
 <table>
 	<% @board.each_with_index do |row,index| %>
 		<tr class="row_<%=index + 1%>">
-			<% row.each do |cell| %>
-				<td><%= cell %></td>
+			<% row.each_with_index do |cell,index| %>
+				<td class="col_<%=index + 1%>"><%= cell %></td>
 			<%end%>
 		</tr>
 	<%end%>
