@@ -98,6 +98,11 @@ class Board
     false
   end
 
+  def play!
+    play
+    show_board
+  end
+
   def play
     create_board
     until is_solved?
@@ -128,5 +133,9 @@ class Board
     brute_board[index].value = guess
     new_board = brute_board.map { |num| get_cell_value(num)}
     self.class.new(new_board.map{|cell| cell.is_a?(Array) ? 0 : cell}.join).play
+  end
+
+  def show_board
+    new_board = game_board.map { |cell| get_cell_value(cell) }
   end
 end
