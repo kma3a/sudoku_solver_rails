@@ -136,6 +136,6 @@ class Board
   end
 
   def show_board
-    new_board = game_board.map { |cell| get_cell_value(cell) }
+    new_board = game_board.map { |cell| get_cell_value(cell) }.each_slice(9).to_a
   end
 end
