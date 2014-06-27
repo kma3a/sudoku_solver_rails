@@ -1,1 +1,11 @@
-<%= @board %>
+<div class='container'>
+<table>
+	<% @board.each_with_index do |row,index| %>
+		<tr class="row_<%=index + 1%>">
+			<% row.each do |cell| %>
+				<td><%= cell %></td>
+			<%end%>
+		</tr>
+	<%end%>
+</table>
+</div>
