@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
 	end
 
 	def create
-		@board = Board.new(board_params).play
+		@board = Board.new(board_params).play!
 	end
 
 	private
