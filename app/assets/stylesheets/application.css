@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+body {
+	background-color: #D9FFEC;
+}
+
+td {
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.col_9{
+	border-right: none;
+}
+
+.row_9 td {
+	border-bottom: none;
+}
+
+.row_3 td,.row_6 td {
+	border-bottom: 4px solid black;
+}
+
+.col_3,.col_6{
+	border-right: 4px solid black;
+}
+
+td {
+	padding: 5px;
+}
+
+td select {
+	margin: 0px;
+	padding: 6px 0px 6px 0px;
+	border: 0px;
+	background-color: white;
+}
+
+
+table{
+	border: 4px solid black;
+	background-color: white;
+}
