@@ -2,7 +2,7 @@
 	<h1>Sudoku Solver</h1>
 </div>
 <div class='sudoku_form'>
-	<%= form_for  root_path do |f| %>
+	<%=form_for  root_path, :html => {:id => "sudoku"}  do |f| %>
 		<h4> for blank spaces leave 0!</h4>
 
 		<table>
