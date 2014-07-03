@@ -5,8 +5,8 @@ class WelcomeController < ApplicationController
 	end
 
 	def create
-		# board_params
 		@board = Board.new(board_params).play!
+		render partial: "sudoku"
 	end
 
 	private
