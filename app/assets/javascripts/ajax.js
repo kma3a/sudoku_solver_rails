@@ -13,7 +13,7 @@ $(document).ready(function(){
 			url: "/",
 			data: {array: new_array},
 			success: function(result){
-				// console.log(result);
+				console.log(result);
 				$('#result').html(result);
 			}
 		})
