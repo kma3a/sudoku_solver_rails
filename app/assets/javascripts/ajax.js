@@ -7,7 +7,15 @@ $(document).ready(function(){
 		for (x = 2; x < sudo_array.length; x++){
 			new_array[x-2] = sudo_array[x].value
 		};
-		var params = {"/" : new_array.join()};
-		console.log(params);
+		$.ajax({
+
+			type: "POST",
+			url: "/",
+			data: {array: new_array},
+			success: function(result){
+				// console.log(result);
+				$('#result').html(result);
+			}
+		})
 	})
 })
