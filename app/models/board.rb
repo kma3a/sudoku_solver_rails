@@ -1,8 +1,8 @@
 class Board
 
-  include ActiveModel::Validations
-  include ActiveModel::Conversion
-  extend ActiveModel::Naming
+  # include ActiveModel::Validations
+  # include ActiveModel::Conversion
+  # extend ActiveModel::Naming
 
   attr_accessor :board, :previous_board, :game_board
 
